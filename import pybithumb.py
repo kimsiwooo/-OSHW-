@@ -15,10 +15,10 @@ prev_ticker = ''
 prev_rate = 0
 prev_dict = { 'ticker' : 0 }
 
-telgm_token = "5384687249:AAGCRGQnUqoRtMv7RPvVhzHR3vHtdaf1rW8" 
+telgm_token = "" 
             
 bot = telegram.Bot(token = telgm_token)
-bot.send_message(chat_id='5309877180', text="종목|현재가격|전체상승률|1초전상승률|상승률차이")
+bot.send_message(chat_id='', text="종목|현재가격|전체상승률|1초전상승률|상승률차이")
 
 print("   날짜    현재시간           종목   현재가격   전체상승률   1초전상승률   상승률차이")
 
@@ -34,11 +34,11 @@ while sec < loop_time :
         if diff >= ascent :
             print(datetime.now(),"  ", ticker, "  ",data['closing_price'], "      ",data['fluctate_rate_24H'],"      ", float(prev_dict[ticker]),"      ", '%.2f' % diff )
             a=ticker,data['closing_price'],data['fluctate_rate_24H'],float(prev_dict[ticker]), '%.2f' % diff
-            telgm_token = "5384687249:AAGCRGQnUqoRtMv7RPvVhzHR3vHtdaf1rW8"  
+            telgm_token = ""  
             
             bot = telegram.Bot(token = telgm_token)
     
-            bot.send_message(chat_id='5309877180', text= a )
+            bot.send_message(chat_id='', text= a )
 
         prev_dict[ticker] = data['fluctate_rate_24H']
 
